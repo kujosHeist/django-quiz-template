@@ -4,6 +4,5 @@ from . import views
 app_name = 'quiz'
 
 urlpatterns = [
-	url(r'^submit$', views.submit, name='submit')
-	url(r'^results$', views.results, name='results')
+	url(r'^home$', views.home, name='home')
 ]
