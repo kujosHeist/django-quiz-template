@@ -5,3 +5,10 @@ from .models import Quiz
 
 admin.site.register(Quiz)
 
+class QuestionAdmin(admin.StackedInline):
+    model = Quiz
+class AnswerAdmin(admin.StackedInline):
+    model = Answer
+
+class QuizAdmin(admin.ModelAdmin):
+    inlines = [ QuestionAdmin ]

@@ -1,0 +1,11 @@
+
+<!-- The alert box to be shown when the submit button is clicked-->
+{% if results %}
+	{{quiz.score}}
+{% else %}
+    <form action="{% url 'quiz:home' %}" method="post">
+   	{% csrf_token %}
+   		
+    	<input type="submit" value="Submit">
+    </form>
+{% endif %}

@@ -19,6 +19,7 @@ class Answer(models.Model):
 class Question(models.Model):
 	quiz = models.ForeignKey(Quiz)
 	text = models.CharField(max_length=100)
+	choices = models.ForeignKey(Answer)
 	answer = models.ForeignKey(Answer)
 
 	def __str__(self):
