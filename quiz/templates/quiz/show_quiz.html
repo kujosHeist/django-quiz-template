@@ -3,7 +3,7 @@
 {% if results %}
 	{{quiz.score}}
 {% else %}
-    <form action="{% url 'quiz:home' %}" method="post">
+    <form action="{% url 'quiz:show_quiz' quiz.id %}" method="POST">
    	{% csrf_token %}
    		{% for question in quiz.question_set.all %}
    			{{question}}
@@ -11,6 +11,11 @@
    			<ul>
    			{% for answer in question.answer_set.all %}
    				<li><label><input type="radio" name="{{question.id}}" value="{{answer.id}}" />{{answer}}</label></li>
+   				
+   				{% if answer.id in answers %}
+   					Correct
+   				{% endif %}
+   				
    			{% endfor %}
    			</ul>
    		{% endfor %}
