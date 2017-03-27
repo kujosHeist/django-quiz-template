@@ -4,8 +4,12 @@ from .models import Quiz
 # Create your views here.
 
 def home(request):
+	return render(request, 'quiz/home.html', {'quizes': Quiz.objects.all()})
+
+def show_quiz(request, quiz_id):
 	if request.method == 'POST':
-		print("Process quiz answers")
+		
 		return render(request, 'quiz/home.html', {'quiz':quiz, 'answers':answers})
 	else:
-		return render(request, 'quiz/home.html')
+		quiz = Quiz.objects.get(title="Sample Quiz")
+		return render(request, 'quiz/show_quiz.html', {'quiz':quiz})
